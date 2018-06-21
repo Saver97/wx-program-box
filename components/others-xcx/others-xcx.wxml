@@ -1,0 +1,20 @@
+<view class="other-wrap">
+    <view bindtap="toOthers" class="xcx_item" wx:for="{{othersXcx}}" wx:key="index">
+        <navigator url="pages/index/index"
+                   target="miniProgram"
+                   open-type="navigate"
+                   app-id="{{item.appId}}"
+                   version="release"
+                   path="{{item.path}}">
+            <image class="item_img" src="{{item.imgSrc}}"></image>
+            <view class="text-wrap">
+                <text class="header">{{item.name}}</text>
+
+                <text>{{item.text1}}{{item.text2}}</text>
+            </view>
+            <button data-img="{{item.imgSrc}}" data-title="{{item.text2}}" catchtap="doNothing" open-type="share">分享</button>
+        </navigator>
+
+
+    </view>
+</view>

@@ -1,0 +1,15 @@
+<swiper autoplay="true" interval="3000">
+    <block wx:for="{{imgUrls}}" wx:key="{{index}}">
+        <swiper-item>
+            <navigator url="pages/index/index"
+                       target="miniProgram"
+                       open-type="navigate"
+                       app-id="{{item.appid}}"
+                       version="release"
+                       path="{{item.path}}">
+                <image src="{{item.img}}"/>
+            </navigator>
+
+        </swiper-item>
+    </block>
+</swiper>

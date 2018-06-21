@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "others-xcx":"../../components/others-xcx/others-xcx",
+    "ad-swiper":"../../components/ad-swiper/ad-swiper"
+  }
+}
