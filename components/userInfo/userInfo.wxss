@@ -1,0 +1,11 @@
+.userImg{
+    width:100rpx;
+    height:100rpx;
+    border-radius:50%;
+    overflow:hidden;
+    margin:0 auto 30rpx;
+}
+.userNick{
+    text-align:center;
+    color:whitesmoke;
+}

@@ -12,29 +12,17 @@ Page({
   },
   onPullDownRefresh(){
       let that=this;
+      wx.showLoading({
+          title: '刷新中',
+      })
       lib.getAds(that);
-      wx.stopPullDownRefresh()
+      wx.stopPullDownRefresh();
   },
   getPhoneNumber: function(e) {
-        console.log(e.detail.errMsg);
-        console.log(e.detail.iv);
-        console.log(e.detail.encryptedData);
-        wx.request({
-            url:'https://xcx5.zhuozhida.cn/decryptOpenGId',
-            method:'POST',
-            header: {
-                'content-type': 'application/x-www-form-urlencoded'
-            },
-            data:{
-                appId:'wx327002b0ffe1dd9d',
-                sessionKey:app.sessionKey,
-                encryptedData:e.detail.encryptedData,
-                iv:e.detail.iv
-            },
-            success(res){
-                console.log(res.data)
-            }
-        })
+        if(e.detail.iv){
+            lib.getUserPhone(e,app)
+        }
+
   },
   onShow(){
       if(app.bEnterXcx){

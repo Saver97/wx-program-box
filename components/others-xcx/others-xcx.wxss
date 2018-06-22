@@ -6,7 +6,7 @@
     background:white;
 }
 .xcx_item{
-    border-bottom: 1px solid #d8d8d8;
+    border-bottom: 1px solid #eee;
     height:100rpx;
     box-sizing:content-box;
     margin-bottom:20rpx;
@@ -34,19 +34,21 @@
     height:100rpx;
     float:left;
     margin:0rpx 40rpx;
+    border-radius:50%;
 }
 .other-wrap button{
-    border-radius:40rpx;
+    border-radius:4rpx;
     font-size:27rpx;
     width:122rpx;
     height:60rpx;
-    line-height:60rpx;
+    line-height:50rpx;
     text-align:center;
     float:right;
     padding:5rpx 10rpx;
     margin-top:20rpx;
     margin-right:30rpx;
-    background:#c9302c;
+    background:#286090;
+    border:1px solid #286090;
     color:white;
     font-weight:300;
 }

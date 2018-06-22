@@ -27,7 +27,7 @@ function getAds(that){
             let arr=res.data.filter((item)=>{
                 return item.name!=='福利盒'
             })
-
+            wx.hideLoading();
             that.setData({
                 othersXcx:arr
             })
@@ -71,9 +71,28 @@ function shareXcx(app,img,title){
             });
         }
     }
+};
+function getUserPhone(e,app){
+    wx.request({
+        url:'https://xcx5.zhuozhida.cn/decryptOpenGId',
+        method:'POST',
+        header: {
+            'content-type': 'application/x-www-form-urlencoded'
+        },
+        data:{
+            appId:'wx327002b0ffe1dd9d',
+            sessionKey:app.sessionKey,
+            encryptedData:e.detail.encryptedData,
+            iv:e.detail.iv
+        },
+        success(res){
+            console.log(res.data)
+        }
+    })
 }
 module.exports = {
     getAds,
     getOpenId,
-    shareXcx
+    shareXcx,
+    getUserPhone
 }

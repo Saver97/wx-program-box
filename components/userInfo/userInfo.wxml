@@ -1,0 +1,6 @@
+<view class="userImg">
+    <open-data type="userAvatarUrl"></open-data>
+</view>
+<view class="userNick">
+    <open-data type="userNickName"></open-data>{{extraText}}
+</view>
