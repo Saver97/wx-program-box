@@ -1,18 +1,12 @@
-// pages/mission/mission.js
+const app = getApp();
+const lib=require('../../utils/aboutUsers.js');
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-  
+    othersXcx:null
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
-  
+      let that=this;
+      lib.getAds(that);
   },
 
   /**

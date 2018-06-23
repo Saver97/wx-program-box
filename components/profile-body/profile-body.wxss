@@ -29,16 +29,13 @@
     margin-top:10rpx;
     color:#818181;
 }
-.tasks-item button{
+
+.tasks-item image{
     position:absolute;
-    right:0;
-    top:0;
-    width:170rpx;
-    background:none;
-    border:1px solid #d8d8d8;
-    font-size:30rpx;
-    padding:0;
-    font-weight:300;
+    right:40rpx;
+    top:20rpx;
+    width:20rpx;
+    height:35rpx;
 }
 .tasks-item::after{
     content: '';

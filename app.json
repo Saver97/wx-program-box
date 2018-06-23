@@ -1,9 +1,9 @@
 {
   "pages": [
-    "pages/index/index",
     "pages/mission/mission",
-    "pages/profile/profile"
+    "pages/index/index",
 
+    "pages/profile/profile"
   ],
   "window": {
     "backgroundTextStyle": "dark",

@@ -4,11 +4,22 @@ let bStopDur=null;
 Page({
   data: {
       othersXcx:null,
-      imgUrls: [],
+      imgUrls: []
   },
-  onLoad: function () {
+  onLoad: function (response) {
       let that=this;
       lib.getAds(that);
+
+      let timer=setInterval(()=>{
+          if(app.globalData.userInfo!=null&&app.globalData.openId!=null){
+              clearInterval(timer);
+              lib.getUserData(that,app,response.srcOpenId).then((result)=>{
+                  lib.checkIn(result);
+              });
+          }
+
+      },400)
+
   },
   onPullDownRefresh(){
       let that=this;
@@ -41,5 +52,18 @@ Page({
       let img=e.target.dataset.img;
       let title=e.target.dataset.title;
       return lib.shareXcx(app,img,title)
-  }
+  },
+  getUserInfo(e) {
+        console.log(e.detail.userInfo)
+        if(e.detail.userInfo){
+            app.globalData.userInfo = e.detail.userInfo;
+        }else{
+            wx.showToast({
+                title: '授权就可以玩哦',
+                icon:'none',
+                duration: 1000
+            })
+        }
+
+    },
 })

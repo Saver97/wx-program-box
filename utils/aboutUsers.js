@@ -51,6 +51,37 @@ function getOpenId(that,code){
         }
     })
 };
+
+function getUserData(that,app,srcOpenId){
+    return new Promise((resolve, reject)=>{
+        wx.request({
+            url: 'https://xcx5.zhuozhida.cn/box/login',
+            data: {
+                openId:app.globalData.openId,
+                name:app.globalData.userInfo.nickName,
+                userImg:app.globalData.userInfo.avatarUrl,
+                srcOpenId:srcOpenId
+            },
+            success: function(res) {
+                console.log('返回数据是')
+                console.log(res.data);
+                resolve(app)
+            }
+        })
+    })
+};
+function checkIn(app){
+  wx.request({
+      url:'https://xcx5.zhuozhida.cn/box/checkIn',
+      data:{
+         openId:app.globalData.openId,
+         name:app.globalData.userInfo.nickName
+      },
+      success(res){
+          console.log(res)
+      }
+  })
+};
 function shareXcx(app,img,title){
     return {
         title:`@我,${title}`,
@@ -90,9 +121,12 @@ function getUserPhone(e,app){
         }
     })
 }
+
 module.exports = {
     getAds,
     getOpenId,
     shareXcx,
-    getUserPhone
+    getUserPhone,
+    getUserData,
+    checkIn
 }
