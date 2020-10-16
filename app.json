@@ -2,7 +2,6 @@
   "pages": [
     "pages/mission/mission",
     "pages/index/index",
-
     "pages/profile/profile"
   ],
   "window": {
@@ -30,5 +29,6 @@
         "pagePath": "pages/profile/profile"
       }
     ]
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }
