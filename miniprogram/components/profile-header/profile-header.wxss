@@ -1,0 +1,29 @@
+.pro-header{
+    width:100%;
+    height:440rpx;
+    padding:100rpx 30rpx;
+    overflow: hidden;
+    background-color: rgba(71, 32, 84, 0.5);
+}
+.pro-header .userImg{
+    width:120rpx;
+    height:120rpx;
+    border-radius:50%;
+    overflow:hidden;
+    display:inline-block;
+}
+.pro-header .userNick{
+    display:inline-block;
+    margin-left:50rpx;
+    font-size:42rpx;
+    font-weight:600;
+}
+.pro-header .mask{
+    position:relative;
+    top:120rpx;
+    left:-70rpx;
+    background: #fff;
+    height: 100px;
+    transform: rotate(10deg);
+    width:140%;
+}

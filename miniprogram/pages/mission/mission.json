@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "mission-body":"../../components/mission-body/mission-body"
+  }
+}

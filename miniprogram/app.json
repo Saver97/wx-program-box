@@ -1,0 +1,34 @@
+{
+  "pages": [
+    "pages/mission/mission",
+    "pages/index/index",
+    "pages/profile/profile"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "福利盒",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": true
+  },
+  "tabBar": {
+    "color": "#50a3a2",
+    "backgroundColor": "black",
+    "selectedColor": "white",
+    "list": [
+      {
+        "text": "首页",
+        "pagePath": "pages/index/index"
+      },
+      {
+        "text": "任务",
+        "pagePath": "pages/mission/mission"
+      },
+      {
+        "text": "我",
+        "pagePath": "pages/profile/profile"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

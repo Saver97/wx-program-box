@@ -1,0 +1,7 @@
+{
+  "enablePullDownRefresh":false,
+  "usingComponents": {
+    "profile-header":"../../components/profile-header/profile-header",
+    "profile-body":"../../components/profile-body/profile-body"
+  }
+}

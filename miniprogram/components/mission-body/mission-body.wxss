@@ -1,0 +1,27 @@
+.missions{
+    padding:20rpx;
+}
+.mission-header{
+    text-align:center;
+}
+.missions .mission-item{
+    width:100%;
+    margin-bottom:40rpx;
+}
+.missions .mission-item .reward{
+    display:inline-block;
+}
+.missions .mission-item text{
+    font-size:30rpx;
+}
+.missions .mission-item .pull{
+    width:50rpx;
+    height:40rpx;
+    float:right;
+    margin-right:40rpx;
+}
+.missions .mission-item .introduce{
+    background:#ccc;
+    overflow:hidden;
+    transition:.4s all ease;
+}

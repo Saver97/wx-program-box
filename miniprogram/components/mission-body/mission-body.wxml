@@ -1,0 +1,11 @@
+<view class="missions">
+    <view class="mission-header">日常任务</view>
+    <view class="mission-item" wx:for="{{missions}}" wx:key="{{index}}">
+        <text>{{item.title}}</text>
+        <view class="reward">{{item.reward}}</view>
+        <image data-index="{{index}}" bindtap="_toggle" class="pull" src="../../img/nav.png"></image>
+        <view class="introduce" style="height:{{item.bDis?'200rpx':'0'}}">
+            {{item.introduceMsg}}
+        </view>
+    </view>
+</view>

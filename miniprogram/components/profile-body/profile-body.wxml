@@ -1,0 +1,20 @@
+<view class="pro-body">
+    <view class="theme">我的信息</view>
+    <view class="tasks">
+        <view class="tasks-item blue">
+            <view class="tasks-title">个人资料</view>
+            <view class="tasks-content">填写个人资料赢红包</view>
+            <image src="../../img/nav.png"></image>
+        </view>
+        <view class="tasks-item red">
+            <view class="tasks-title">我的金币</view>
+            <view class="tasks-content">领取金币可提现</view>
+            <image src="../../img/nav.png"></image>
+        </view>
+        <view class="tasks-item green">
+            <view class="tasks-title">红包记录</view>
+            <view class="tasks-content">查看我的红包日志</view>
+            <image src="../../img/nav.png"></image>
+        </view>
+    </view>
+</view>

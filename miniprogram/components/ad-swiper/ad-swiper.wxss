@@ -1,0 +1,9 @@
+swiper{
+    width:750rpx;
+    height:276rpx;
+    margin:0 auto 50rpx;
+}
+swiper image{
+    width:750rpx;
+    height:276rpx;
+}

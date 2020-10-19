@@ -1,0 +1,11 @@
+Component({
+    options:{
+        multipleSlots:true
+    },
+    properties:{
+        extraText:{
+            type:String,
+            value:''
+        }
+    }
+})
