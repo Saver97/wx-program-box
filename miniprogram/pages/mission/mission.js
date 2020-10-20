@@ -1,12 +1,10 @@
 const app = getApp();
-const lib=require('../../utils/aboutUsers.js');
 Page({
   data: {
     othersXcx:null
   },
   onLoad: function (options) {
       let that=this;
-      lib.getAds(that);
   },
 
   /**

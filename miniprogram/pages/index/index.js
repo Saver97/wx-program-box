@@ -1,69 +1,71 @@
-const app = getApp();
-const lib=require('../../utils/aboutUsers.js');
-let bStopDur=null;
+//index.js
+const app = getApp()
+
 Page({
   data: {
-      othersXcx:null,
-      imgUrls: []
+    avatarUrl: './user-unlogin.png',
+    userInfo: {},
+    logged: false,
+    takeSession: false,
+    requestResult: ''
   },
-  onLoad: function (response) {
-      let that=this;
-      lib.getAds(that);
 
-      let timer=setInterval(()=>{
-          if(app.globalData.userInfo!=null&&app.globalData.openId!=null){
-              clearInterval(timer);
-              lib.getUserData(that,app,response.srcOpenId).then((result)=>{
-                  lib.checkIn(result);
-              });
-          }
-
-      },400)
-
-  },
-  onPullDownRefresh(){
-      let that=this;
-      wx.showLoading({
-          title: '刷新中',
+  onLoad: function() {
+    if (!wx.cloud) {
+      wx.redirectTo({
+        url: '../chooseLib/chooseLib',
       })
-      lib.getAds(that);
-      wx.stopPullDownRefresh();
-  },
-  getPhoneNumber: function(e) {
-        if(e.detail.iv){
-            lib.getUserPhone(e,app)
-        }
+      return
+    }
 
-  },
-  onShow(){
-      if(app.bEnterXcx){
-          console.log(app.durationTime);
-          app.bEnterXcx=false;
+    // 获取用户信息
+    wx.getSetting({
+      success: res => {
+        if (res.authSetting['scope.userInfo']) {
+          // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
+          wx.getUserInfo({
+            success: res => {
+              this.setData({
+                avatarUrl: res.userInfo.avatarUrl,
+                userInfo: res.userInfo
+              })
+            }
+          })
+        }
       }
+    })
   },
-  onHide(){
-     if(app.bEnterXcx){
-         bStopDur=setInterval(()=>{
-             app.durationTime++;
-         },1000)
-     }
-  },
-  onShareAppMessage(e) {
-      let img=e.target.dataset.img;
-      let title=e.target.dataset.title;
-      return lib.shareXcx(app,img,title)
-  },
-  getUserInfo(e) {
-        console.log(e.detail.userInfo)
-        if(e.detail.userInfo){
-            app.globalData.userInfo = e.detail.userInfo;
-        }else{
-            wx.showToast({
-                title: '授权就可以玩哦',
-                icon:'none',
-                duration: 1000
-            })
-        }
 
-    },
+  onGetUserInfo: function(e) {
+    if (!this.data.logged && e.detail.userInfo) {
+      this.setData({
+        logged: true,
+        avatarUrl: e.detail.userInfo.avatarUrl,
+        userInfo: e.detail.userInfo
+      })
+      console.log(this.data.userInfo)
+    }
+  },
+
+  onGetOpenid: function() {
+    // 调用云函数
+    wx.cloud.callFunction({
+      name: 'login',
+      data: {},
+      success: res => {
+        console.log('[云函数] [login] user openid: ', res.result.openid)
+        app.globalData.openid = res.result.openid
+        // wx.navigateTo({//页面跳转
+        //   url: '../userConsole/userConsole',
+        // })
+      },
+      fail: err => {
+        console.error('[云函数] [login] 调用失败', err)
+        // wx.navigateTo({
+        //   url: '../deployFunctions/deployFunctions',
+        // })
+      }
+    })
+  },
+
 })

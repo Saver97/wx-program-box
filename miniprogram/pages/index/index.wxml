@@ -1,4 +1,15 @@
 <ad-swiper imgUrls="{{imgUrls}}"></ad-swiper>
 <others-xcx othersXcx="{{othersXcx}}"></others-xcx>
-<button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber"> 22222</button>
-<button bindgetuserinfo="getUserInfo" open-type="getUserInfo">获取用户头像信息</button>
+<!-- <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber"> 22222</button> -->
+<view class="userinfo">
+    <button 
+      open-type="getUserInfo" 
+      bindgetuserinfo="onGetUserInfo"
+      class="userinfo-avatar"
+      style="background-image: url({{avatarUrl}})"
+      size="default"
+    >获取用户信息</button>
+    <view class="userinfo">
+      <button class="userinfo" bindtap="onGetOpenid">点击获取 openid</button>
+    </view>
+  </view>
