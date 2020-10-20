@@ -1,4 +1,0 @@
-<ad-swiper imgUrls="{{imgUrls}}"></ad-swiper>
-<others-xcx othersXcx="{{othersXcx}}"></others-xcx>
-<button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber"> 22222</button>
-<button bindgetuserinfo="getUserInfo" open-type="getUserInfo">获取用户头像信息</button>
