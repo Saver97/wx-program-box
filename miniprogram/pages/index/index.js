@@ -7,9 +7,15 @@ Page({
     userInfo: {},
     logged: false,
     takeSession: false,
-    requestResult: ''
+    requestResult: '',
+    mainImgUrl:'https://dss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=151472226,3497652000&fm=26&gp=0.jpg',
+    adsbtnImgUrl:"https://dss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=276772730,3789231562&fm=26&gp=0.jpg"
   },
-
+  adsbtn:function()
+  {
+    console.log("看广告")
+  }
+,
   onLoad: function() {
     if (!wx.cloud) {
       wx.redirectTo({

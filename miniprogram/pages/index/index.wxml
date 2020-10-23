@@ -13,6 +13,24 @@
       <button class="userinfo" bindtap="onGetOpenid">点击获取 openid</button>
     </view> -->
    
-  <!-- </view> -->
-  <image class="userhead" src="{{avatarUrl}}" width:200rpx height:200rpx></image>
-  <text>{{userInfo.nickName}}</text>
+  <!-- 个人信息 -->
+  <image class="userhead" src="{{avatarUrl}}" ></image><!-- 头像 -->
+  <text>{{userInfo.nickName}}</text><!-- 名字-->
+
+<!-- 主界面图片 -->
+  <view class="mainimgviewcss">
+    <!-- <image class="mainImgcss" src="{{mainImgUrl}}"></image>    -->
+    <view class="mainbg">
+      <image class="testcss" src="{{adsbtnImgUrl}}" ></image>   
+      <image class="signcss" src="{{adsbtnImgUrl}}" ></image>   
+      <image class="adscss" src="{{adsbtnImgUrl}}" bindtap="adsbtn" ></image> 
+    </view>
+  </view>
+  <!-- 获取 道具  -->
+  <view>
+    <view class="getprop">
+    <text>标题</text>
+    <slider class="slider"></slider>
+    <button size="mini" type="primary">获取</button>
+    </view>
+  </view>

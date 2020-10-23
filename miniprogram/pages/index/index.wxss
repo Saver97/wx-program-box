@@ -1,4 +1,52 @@
+/* 用户头像 */
 .userhead{
   width: 200rpx;
   height: 200rpx;
+}
+  /* sf */
+
+.mainImgcss{
+  width: 100%;
+  height: 400rpx;
+  color: red;
+}
+.mainimgviewcss{
+  background-image: url(https://dss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=151472226,3497652000&fm=26&gp=0.jpg);
+  background-position: center;
+  height: 300rpx;
+}
+.adsImgcss{
+  width: 100rpx;
+  height: 100rpx;
+ align-self: center;
+
+}
+.mainbg{
+  display: flex;
+}
+.testcss{
+  flex:1;
+  background: red;
+  height: 150rpx;
+  margin: 20rpx
+}
+
+.signcss{
+  flex:1;
+  background: green;
+  height: 100rpx;
+  margin: 20rpx
+}
+.adscss{
+  flex:1;
+ background:pink;
+ height: 150rpx;
+ margin: 20rpx
+}
+.getprop{
+  width: 95%;
+  height: 300rpx;
+  border-radius: 20rpx;
+  background: pink;
+  margin: 20rpx;
 }
