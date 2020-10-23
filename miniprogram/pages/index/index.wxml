@@ -1,4 +1,4 @@
-<!-- <ad-swiper imgUrls="{{imgUrls}}"></ad-swiper>
+﻿<!-- <ad-swiper imgUrls="{{imgUrls}}"></ad-swiper>
 <others-xcx othersXcx="{{othersXcx}}"></others-xcx> -->
 <!-- <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber"> 22222</button> -->
 <!-- <view class="userinfo"> -->
@@ -20,7 +20,7 @@
 <!-- 主界面图片 -->
   <view class="mainimgviewcss">
     <!-- <image class="mainImgcss" src="{{mainImgUrl}}"></image>    -->
-    <view class="mainbg">
+    <view class="mainbg" >
       <image class="testcss" src="{{adsbtnImgUrl}}" ></image>   
       <image class="signcss" src="{{adsbtnImgUrl}}" ></image>   
       <image class="adscss" src="{{adsbtnImgUrl}}" bindtap="adsbtn" ></image> 
