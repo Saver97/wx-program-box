@@ -1,0 +1,6 @@
+<!--pages/mr3/mr3.wxml-->
+<!-- <text>pages/mr3/mr3.wxml</text> -->
+<view>
+<image src="http://intmote.com/picture/gift.png" class="mrimg" animation="{{animation}}"></image>
+<text>test</text>
+</view>

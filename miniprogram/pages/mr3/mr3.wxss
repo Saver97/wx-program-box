@@ -1,0 +1,6 @@
+/* pages/mr3/mr3.wxss */
+.mrimg{
+  width: 200rpx;
+  height: 200rpx;
+  margin: 200rpx;
+}
