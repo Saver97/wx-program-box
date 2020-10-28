@@ -12,8 +12,10 @@
 }
 .mainimgviewcss{
   background-image: url(https://dss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=151472226,3497652000&fm=26&gp=0.jpg);
-  background-position: center;
+  /* background-position: center; */
   height: 300rpx;
+  align-items: center;
+  display: flex;
 }
 .adsImgcss{
   width: 100rpx;
@@ -21,32 +23,89 @@
  align-self: center;
 
 }
-.mainbg{
+/* .mainbg{
   display: flex;
-}
+} */
 .testcss{
   flex:1;
   background: red;
   height: 150rpx;
-  margin: 20rpx
+  margin: 20rpx;
+ /* align-self: auto; */
+ /* align-self: baseline; */
+ align-self: flex-end;
 }
 
 .signcss{
   flex:1;
   background: green;
   height: 100rpx;
-  margin: 20rpx
+  margin: 20rpx;
+  align-self: flex-end;
 }
-.adscss{
+.adscssbtn{
   flex:1;
  background:pink;
  height: 150rpx;
- margin: 20rpx
+ margin: 20rpx;
+ align-self:baseline;
 }
+/* 获取道具  */
 .getprop{
   width: 95%;
-  height: 300rpx;
+  height: 250rpx;
   border-radius: 20rpx;
   background: pink;
+  /* margin-left: 25rpx; */
+  /* margin-top: 10rpx; */
+display: flex;
+/* flex-direction:column-reverse; */
+flex-direction: column;
+}
+/* 获取道具 标题  */
+.title{
+  align-self: center;
+ margin-block: 20rpx;
+}
+/* 获取按钮  */
+.getbtn{
+margin-block: 20rpx;
+}
+/* 任务  */
+.adscss{
+  background-color: plum;
+ display: flex;
+ width: 100%;
+ height: 150rpx;
+ margin: 10rpx;
+ /* flex-direction: column; */
+}
+.adsicon{
+  flex: 1;
+  background-color: rebeccapurple;
+}
+.adsiconimage{
+  width: 100rpx;
+  height: 100rpx;
   margin: 20rpx;
+}
+.adscontent{
+  flex: 3;
+  background-color: red;
+  text-align: center;
+  /* margin: 20rpx; */
+}
+/* .adscontent-view{
+  background: green;
+} */
+.adscontent view{
+margin-bottom: 30rpx;
+margin-top: 10rpx;
+}
+.adscontent.view{
+  margin: 50rpx;
+}
+.adsbtn{
+  flex: 1;
+  /* background-color: pink; */
 }

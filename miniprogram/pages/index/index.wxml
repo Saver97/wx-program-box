@@ -20,17 +20,30 @@
 <!-- 主界面图片 -->
   <view class="mainimgviewcss">
     <!-- <image class="mainImgcss" src="{{mainImgUrl}}"></image>    -->
-    <view class="mainbg" >
       <image class="testcss" src="{{adsbtnImgUrl}}" ></image>   
       <image class="signcss" src="{{adsbtnImgUrl}}" ></image>   
-      <image class="adscss" src="{{adsbtnImgUrl}}" bindtap="adsbtn" ></image> 
-    </view>
+      <image class="adscssbtn" src="{{adsbtnImgUrl}}" bindtap="adsbtn" ></image> 
   </view>
   <!-- 获取 道具  -->
   <view>
     <view class="getprop">
-    <text>标题</text>
-    <slider class="slider"></slider>
-    <button size="mini" type="primary">获取</button>
+    <view class="title">标题</view>
+    <slider class="slider" value="{{sliderValue}}"></slider>
+    <button size="mini" type="primary" class="getbtn">获取</button>
+    </view>
+  </view>
+  <!-- 任务 -->
+  <view>
+    <view class="adscss"  wx:for="{{adsinfo}}"> 
+      <view class="adsicon">
+        <image src="{{item.iconUrl}}" class="adsiconimage"></image>
+      </view>
+      <view class="adscontent">
+        <view>"{{item.adsTitle}}"</view>
+        <view>"{{item.adsTips}}"</view>
+      </view>
+      <view class="adsbtn">
+        <image src="{{item.lookadsimgUrl}}" class="adsiconimage" bindtap="lookads" ></image>
+      </view>
     </view>
   </view>

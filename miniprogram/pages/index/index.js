@@ -9,10 +9,29 @@ Page({
     takeSession: false,
     requestResult: '',
     mainImgUrl:'https://dss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=151472226,3497652000&fm=26&gp=0.jpg',
-    adsbtnImgUrl:"https://dss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=276772730,3789231562&fm=26&gp=0.jpg"
+    adsbtnImgUrl:"https://dss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=276772730,3789231562&fm=26&gp=0.jpg",
+    sliderValue:50,
+    adsinfo:[{
+      iconUrl:"https://dss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=276772730,3789231562&fm=26&gp=0.jpg",
+      lookadsimgUrl:"https://dss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=276772730,3789231562&fm=26&gp=0.jpg",
+      adsTitle:"这是广告标题1",
+      adsTips:"广告提示"
+    },
+      {
+      iconUrl:"https://dss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=276772730,3789231562&fm=26&gp=0.jpg",
+      lookadsimgUrl:"https://dss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=276772730,3789231562&fm=26&gp=0.jpg",
+      adsTitle:"这是广告标题2",
+      adsTips:"广告提示2"
+    }
+  ]
   },
   adsbtn:function()
   {
+    console.log("看广告")
+  },
+  lookads: function(e)
+  {
+    console.log(e)
     console.log("看广告")
   }
 ,
