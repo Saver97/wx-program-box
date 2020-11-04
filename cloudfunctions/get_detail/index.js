@@ -1,14 +1,18 @@
 // 云函数入口文件
 const cloud = require('wx-server-sdk')
 
-cloud.init({ env: cloud.DYNAMIC_CURRENT_ENV })
-const db = cloud.database({ env: cloud.DYNAMIC_CURRENT_ENV })//取默认环境的数据库
+cloud.init({
+  env: cloud.DYNAMIC_CURRENT_ENV
+})
+const db = cloud.database({
+  env: cloud.DYNAMIC_CURRENT_ENV
+}) //取默认环境的数据库
 const _ = db.command
 // 云函数入口函数
 exports.main = async (event, context) => {
   //创建记录为openid-user
   console.log(event)
-  const docId = `${event.openId}-user`
+  const docId = `${event.open_id}-user`
   let userRecord
   try {
     const querResult = await db.collection('user').doc(docId).get()
@@ -22,10 +26,10 @@ exports.main = async (event, context) => {
       userRecord: userRecord
     }
   } else {
-    db.collection('score').add({
+    db.collection('user').add({
       data: {
         _id: docId,
-        _openid: event.userInfo.openId,
+        _openid: event.open_id,
         _lv: 1,
         _gold: 0,
         _rmb: 0,
@@ -38,9 +42,11 @@ exports.main = async (event, context) => {
         _refresh_sec: 0,
         _feed_sec: 0,
       },
-      success: function (res) {
-        console.log(res)
-      }
+    }).then(res => {
+      console.log(res)
     })
+    return {
+      userRecord: res
+    }
   }
 }
