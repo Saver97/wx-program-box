@@ -24,6 +24,7 @@ Page({
       adsTips:"广告提示2"
     }
   ]
+  ,
   animation:{}
   },
   adsbtn:function()
