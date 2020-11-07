@@ -1,6 +1,17 @@
 <!--pages/mr3/mr3.wxml-->
 <!-- <text>pages/mr3/mr3.wxml</text> -->
-<view>
+<!-- <view>
 <image src="http://intmote.com/picture/gift.png" class="mrimg" animation="{{animation}}"></image>
 <text>test</text>
-</view>
+</view> -->
+<view class="btn" bindtap="powerDrawer" data-statu="open">button</view>  
+<view class="drawer_screen" bindtap="powerDrawer" data-statu="close" wx:if="{{showModalStatus}}"></view>  
+<!--content-->  
+<!--使用animation属性指定需要执行的动画-->  
+<view animation="{{animationData}}" class="drawer_box" wx:if="{{showModalStatus}}">  
+  <!--drawer content-->
+  <view class="circle"></view>  
+  <view class="drawer_content">       
+  </view>
+</view> 
+
