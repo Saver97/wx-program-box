@@ -1,49 +1,45 @@
 ﻿<!-- <ad-swiper imgUrls="{{imgUrls}}"></ad-swiper>
-<others-xcx othersXcx="{{othersXcx}}"></others-xcx> -->
-<!-- <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber"> 22222</button> -->
-<!-- <view class="userinfo"> -->
-    <!-- <button 
-      open-type="getUserInfo" 
-      bindgetuserinfo="onGetUserInfo"
-      class="userinfo-avatar"
-      style="background-image: url({{avatarUrl}})"
-      size="default"
-    >获取用户信息</button>
-    <view class="userinfo">
-      <button class="userinfo" bindtap="onGetOpenid">点击获取 openid</button>
-    </view> -->
-   
+<others-xcx othersXcx="{{othersXcx}}"></others-xcx> 
+<button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber"> 22222</button> -->
+<view class="userinfo">
+  <button open-type="getUserInfo" bindgetuserinfo="onGetUserInfo" class="userinfo-avatar"
+    style="background-image: url({{avatarUrl}})" size="default">获取用户信息</button>
+  <view class="userinfo">
+    <button class="userinfo" bindtap="onGetDetail">点击获取 详细内容</button>
+  </view>
+
   <!-- 个人信息 -->
-  <image class="userhead" src="{{avatarUrl}}" ></image><!-- 头像 -->
+  <image class="userhead" src="{{avatarUrl}}"></image><!-- 头像 -->
   <text>{{userInfo.nickName}}</text><!-- 名字-->
 
-<!-- 主界面图片 -->
+  <!-- 主界面图片 -->
   <view class="mainimgviewcss">
     <!-- <image class="mainImgcss" src="{{mainImgUrl}}"></image>    -->
-      <image class="testcss" src="{{adsbtnImgUrl}}"  animation="{{animation}}"></image>   
-      <image class="signcss" src="{{adsbtnImgUrl}}" animation="{{animation}}"></image>   
-      <image class="adscssbtn" src="{{adsbtnImgUrl}}" bindtap="adsbtn"  animation="{{animation}}"></image> 
+    <image class="testcss" src="{{adsbtnImgUrl}}" animation="{{animation}}"></image>
+    <image class="signcss" src="{{adsbtnImgUrl}}" animation="{{animation}}"></image>
+    <image class="adscssbtn" src="{{adsbtnImgUrl}}" bindtap="adsbtn" animation="{{animation}}"></image>
   </view>
-  <!-- 获取 道具  -->
-  <view>
-    <view class="getprop">
+</view>
+<!-- 获取 道具  -->
+<view>
+  <view class="getprop">
     <view class="title">标题</view>
     <slider class="slider" value="{{sliderValue}}"></slider>
     <button size="mini" type="primary" class="getbtn">获取</button>
+  </view>
+</view>
+<!-- 任务 -->
+<view>
+  <view class="adscss" wx:for="{{adsinfo}}">
+    <view class="adsicon">
+      <image src="{{item.iconUrl}}" class="adsiconimage"></image>
+    </view>
+    <view class="adscontent">
+      <view>"{{item.adsTitle}}"</view>
+      <view>"{{item.adsTips}}"</view>
+    </view>
+    <view class="adsbtn">
+      <image src="{{item.lookadsimgUrl}}" class="adsiconimage" bindtap="lookads"></image>
     </view>
   </view>
-  <!-- 任务 -->
-  <view>
-    <view class="adscss"  wx:for="{{adsinfo}}"> 
-      <view class="adsicon">
-        <image src="{{item.iconUrl}}" class="adsiconimage"></image>
-      </view>
-      <view class="adscontent">
-        <view>"{{item.adsTitle}}"</view>
-        <view>"{{item.adsTips}}"</view>
-      </view>
-      <view class="adsbtn">
-        <image src="{{item.lookadsimgUrl}}" class="adsiconimage" bindtap="lookads" ></image>
-      </view>
-    </view>
-  </view>
+</view>

@@ -9,6 +9,17 @@ const db = cloud.database({
 }) //取默认环境的数据库
 const _ = db.command
 // 云函数入口函数
+
+function if_same_day(t1,t2,hour){
+  var date = new Date()
+  var y = date.getUTCFullYear(t1) 
+  var m = date.getUTCMonth(t1)
+  var d = date.getUTCDate(t1)
+  
+}
+
+
+
 exports.main = async (event, context) => {
   //创建记录为openid-user
   console.log(event)
@@ -22,6 +33,8 @@ exports.main = async (event, context) => {
   }
   if (userRecord) {
     //TODO: 计算收益 重置记录等
+
+
     return {
       userRecord: userRecord
     }
@@ -44,9 +57,12 @@ exports.main = async (event, context) => {
       },
     }).then(res => {
       console.log(res)
-      return {
-        userRecord: res
-      }
     })
+    const querResult = await db.collection('user').doc(docId).get()
+    if (querResult.data) {
+      return {
+        userRecord: querResult.data
+      }
+    }
   }
 }
