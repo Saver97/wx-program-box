@@ -20,9 +20,9 @@
 <!-- 主界面图片 -->
   <view class="mainimgviewcss">
     <!-- <image class="mainImgcss" src="{{mainImgUrl}}"></image>    -->
-      <image class="testcss" src="{{adsbtnImgUrl}}" ></image>   
-      <image class="signcss" src="{{adsbtnImgUrl}}" ></image>   
-      <image class="adscssbtn" src="{{adsbtnImgUrl}}" bindtap="adsbtn" ></image> 
+      <image class="testcss" src="{{adsbtnImgUrl}}"  animation="{{animation}}"></image>   
+      <image class="signcss" src="{{adsbtnImgUrl}}" animation="{{animation}}"></image>   
+      <image class="adscssbtn" src="{{adsbtnImgUrl}}" bindtap="adsbtn"  animation="{{animation}}"></image> 
   </view>
   <!-- 获取 道具  -->
   <view>

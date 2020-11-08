@@ -24,6 +24,8 @@ Page({
       adsTips:"广告提示2"
     }
   ]
+  ,
+  animation:{}
   },
   adsbtn:function()
   {
@@ -91,6 +93,32 @@ Page({
         // })
       }
     })
+  },
+  onShow:function()
+  {
+    var animation=wx.createAnimation({
+      delay:0,
+      duration:500,
+      timingFunction:"ease",
+    })
+    this.animation=animation
+    var next=true
+    setInterval(function(){
+      if (next){
+        animation.translateX(4).step();
+        animation.rotate(19).step();
+        next=!next;
+      }
+      else
+      {
+        animation.translateX(-4).step();
+        animation.rotate(-19).step();
+        next=!next;
+      }
+      this.setData({
+        animation:animation.export()
+      })
+    }.bind(this),300);
   },
 
 })
