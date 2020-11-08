@@ -44,9 +44,9 @@ exports.main = async (event, context) => {
       },
     }).then(res => {
       console.log(res)
+      return {
+        userRecord: res
+      }
     })
-    return {
-      userRecord: res
-    }
   }
 }
