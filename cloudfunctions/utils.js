@@ -59,15 +59,16 @@ class Map {
 }
 function add_item(bag, item_list) {
   var flag = false
-  for (item in bag) {
-    for (add_item in item_list) {
-      if (add_item.id == item.id){
+  for (add_item in item_list) {
+    for (item in bag) {
+      if (add_item.id == item.id) {
         flag = true
         item.number += add_item.number
       }
     }
-  }
-  if(!flag){
-    
+    if (!flag) {
+      flag = false
+      bag.push(add_item)
+    }
   }
 }
