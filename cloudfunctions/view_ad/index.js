@@ -1,6 +1,6 @@
 // 云函数入口文件
 const cloud = require('wx-server-sdk')
-import { _enum } from '../enum.js'
+import { _enum, Map } from '../utils.js'
 cloud.init()
 const db = cloud.database({
   env: cloud.DYNAMIC_CURRENT_ENV
