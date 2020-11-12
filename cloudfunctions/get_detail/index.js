@@ -10,16 +10,6 @@ const db = cloud.database({
 const _ = db.command
 // 云函数入口函数
 
-function if_same_day(t1,t2,hour){
-  var date = new Date()
-  var y = date.getUTCFullYear(t1) 
-  var m = date.getUTCMonth(t1)
-  var d = date.getUTCDate(t1)
-  
-}
-
-
-
 exports.main = async (event, context) => {
   //创建记录为openid-user
   console.log(event)
@@ -32,9 +22,36 @@ exports.main = async (event, context) => {
 
   }
   if (userRecord) {
+    if (userRecord._last_feed_sec > 0) {
+      var cur_time = new Date().getTime()
+      var time_diff = cur_time - userRecord._feed_sec
+      userRecord._last_feed_sec -= time_diff
+      if (userRecord._last_feed_sec < 0) {
+        time_diff = userRecord._last_feed_sec
+        userRecord._last_feed_sec = 0
+        userRecord._feed_sec = 0
+      }
+      var gold = time_diff / 1000 //TODO 等级系数 下线数量等 公式需要另算
+      userRecord._gold += gold
+    }
     //TODO: 计算收益 重置记录等
-
-
+    if (cur_time > userRecord._refresh_sec) {
+      userRecord._sign_day = 0
+      userRecord._view_ad = 0
+      userRecord._invite = 0
+      userRecord._refresh_sec = cur_time
+      const updateResult = await db.collection('user').doc(userRecord._id).update({
+        data: {
+          _sign_day: userRecord._sign_day,//签到天数
+          _view_ad: userRecord._view_ad,//看广告次数
+          _invite: userRecord._invite,//邀请人数
+          _refresh_sec: userRecord._refresh_sec,//刷新的记录时间戳
+          _last_feed_sec: userRecord._last_feed_sec,
+          _gold: userRecord._gold,
+          _feed_sec: userRecord._feed_sec,
+        }
+      })
+    }
     return {
       userRecord: userRecord
     }
@@ -44,25 +61,30 @@ exports.main = async (event, context) => {
         _id: docId,
         _openid: event.open_id,
         _lv: 1,
-        _gold: 0,
+        _gold: 0,//金币
         _rmb: 0,
-        _item: {},
-        _sign_day: 0,
-        _view_ad: 0,
-        _invite: 0,
-        _wait_gold: {},
-        _creat_time: new Date().getTime(),
-        _refresh_sec: 0,
-        _feed_sec: 0,
+        _item: {},//道具
+        _sign_day: 0,//签到天数
+        _view_ad: 0,//看广告次数
+        _invite: 0,//邀请人数
+        _refresh_sec: new Date().getTime(),//刷新的记录时间戳
+        _wait_gold: {},//等待收获的金币 {number=,log=}
+        _creat_time: new Date().getTime(),//创建时间
+        _feed_sec: 0,//喂食的时间点
+        _last_feed_sec : 0,//喂食的持续时间
       },
     }).then(res => {
       console.log(res)
     })
-    const querResult = await db.collection('user').doc(docId).get()
-    if (querResult.data) {
-      return {
-        userRecord: querResult.data
+    try {
+      const querResult = await db.collection('user').doc(docId).get()
+      if (querResult.data) {
+        return {
+          userRecord: querResult.data
+        }
       }
+    } catch (error) {
+
     }
   }
 }
