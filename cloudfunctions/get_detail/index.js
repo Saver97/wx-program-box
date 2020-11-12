@@ -63,12 +63,12 @@ exports.main = async (event, context) => {
         _lv: 1,
         _gold: 0,//金币
         _rmb: 0,
-        _item: {},//道具
+        _item: new Array(),//道具
         _sign_day: 0,//签到天数
         _view_ad: 0,//看广告次数
         _invite: 0,//邀请人数
         _refresh_sec: new Date().getTime(),//刷新的记录时间戳
-        _wait_gold: {},//等待收获的金币 {number=,log=}
+        _wait_gold: new Array(),//等待收获的金币 {number=,log=}
         _creat_time: new Date().getTime(),//创建时间
         _feed_sec: 0,//喂食的时间点
         _last_feed_sec : 0,//喂食的持续时间
