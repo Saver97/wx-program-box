@@ -1,6 +1,7 @@
 const _enum = {
   view_ad_over_limit: 1,
   sql_query_error: 2,
+  had_no_food: 3,
 }
 class Map {
   constructor() {
