@@ -22,8 +22,10 @@ exports.main = async (event, context) => {
 
   }
   if (userRecord) {
+    var cur_time = new Date().getTime()
+    var flag = false
     if (userRecord._last_feed_sec > 0) {
-      var cur_time = new Date().getTime()
+      flag = true
       var time_diff = cur_time - userRecord._feed_sec
       userRecord._last_feed_sec -= time_diff
       if (userRecord._last_feed_sec < 0) {
@@ -36,10 +38,13 @@ exports.main = async (event, context) => {
     }
     //TODO: 计算收益 重置记录等
     if (cur_time > userRecord._refresh_sec) {
+      flag = true
       userRecord._sign_day = 0
       userRecord._view_ad = 0
       userRecord._invite = 0
       userRecord._refresh_sec = cur_time
+    }
+    if (flag) {
       const updateResult = await db.collection('user').doc(userRecord._id).update({
         data: {
           _sign_day: userRecord._sign_day,//签到天数
@@ -50,6 +55,8 @@ exports.main = async (event, context) => {
           _gold: userRecord._gold,
           _feed_sec: userRecord._feed_sec,
         }
+      }).then(res => {
+        console.log(res)
       })
     }
     return {
@@ -75,7 +82,13 @@ exports.main = async (event, context) => {
         _food: 0,//猫粮数量
       },
     }).then(res => {
-      console.log(res)
+      db.collection('scorekeeping').add({
+        _id: docId,
+        _sign_day: 0,//签到天数
+        _view_ad: 0,//看广告次数
+        _invite: 0,//邀请人数
+        _creat_time: new Date().getTime(),//创建时间
+      })
     })
     try {
       const querResult = await db.collection('user').doc(docId).get()

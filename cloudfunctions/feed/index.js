@@ -34,14 +34,14 @@ exports.main = async (event, context) => {
     userRecord._last_feed_sec = used_food*100 //猫粮可以带来的生成金币的持续时间待定
     const updateResult = await db.collection('user').doc(userRecord._id).update({
       data: {
-        _feed_sec: userRecord._feed_sec,//看广告次数
+        _feed_sec: userRecord._feed_sec,
         _food: userRecord._food,
         _last_feed_sec: userRecord._last_feed_sec,
       }
     })
     if (updateResult.stats.updated != 0) {
       return {
-        _feed_sec: userRecord._feed_sec,//看广告次数
+        _feed_sec: userRecord._feed_sec,
         _food: userRecord._food,
         _last_feed_sec: userRecord._last_feed_sec,
       }
