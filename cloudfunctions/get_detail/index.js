@@ -71,7 +71,8 @@ exports.main = async (event, context) => {
         _wait_gold: new Array(),//等待收获的金币 {number=,log=}
         _creat_time: new Date().getTime(),//创建时间
         _feed_sec: 0,//喂食的时间点
-        _last_feed_sec : 0,//喂食的持续时间
+        _last_feed_sec: 0,//喂食的持续时间
+        _food: 0,//猫粮数量
       },
     }).then(res => {
       console.log(res)

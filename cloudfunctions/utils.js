@@ -1,5 +1,6 @@
 const _enum = {
   view_ad_over_limit: 1,
+  sql_query_error: 2,
 }
 class Map {
   constructor() {
@@ -71,4 +72,7 @@ function add_item(bag, item_list) {
       bag.push(add_item)
     }
   }
+}
+const _item = {
+  
 }
