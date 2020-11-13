@@ -39,7 +39,6 @@ exports.main = async (event, context) => {
     //TODO: 计算收益 重置记录等
     if (cur_time > userRecord._refresh_sec) {
       flag = true
-      userRecord._sign_day = 0
       userRecord._view_ad = 0
       userRecord._invite = 0
       userRecord._refresh_sec = cur_time
